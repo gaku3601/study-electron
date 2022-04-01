@@ -20,6 +20,7 @@
   },
   "scripts": {
     "electron:dev": "concurrently \"cross-env BROWSER=none npm start\" \"wait-on http://localhost:3000 && tsc -p electron -w\" \"wait-on http://localhost:3000 && tsc -p electron && electron .\"",
+    "electron:build:portable": "npm run build && tsc -p electron && electron-builder --mac --x64 --dir",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -45,5 +46,11 @@
     "electron": "^18.0.1",
     "electron-builder": "^22.14.13",
     "wait-on": "^6.0.1"
+  },
+  "build": {
+    "extends": null,
+    "files": [
+      "build/**/*"
+    ]
   }
 }
