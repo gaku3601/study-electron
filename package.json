@@ -2,6 +2,8 @@
   "name": "study-electron1",
   "version": "0.1.0",
   "private": true,
+  "main": "build/electron/electron.js",
+  "homepage": "./",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
@@ -17,6 +19,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "electron:dev": "concurrently \"cross-env BROWSER=none npm start\" \"wait-on http://localhost:3000 && tsc -p electron -w\" \"wait-on http://localhost:3000 && tsc -p electron && electron .\"",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -30,14 +33,17 @@
   },
   "browserslist": {
     "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
+      "last 1 electron version"
     ],
     "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
+      "last 1 electron version"
     ]
+  },
+  "devDependencies": {
+    "concurrently": "^7.0.0",
+    "cross-env": "^7.0.3",
+    "electron": "^18.0.1",
+    "electron-builder": "^22.14.13",
+    "wait-on": "^6.0.1"
   }
 }
