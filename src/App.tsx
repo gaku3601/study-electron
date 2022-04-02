@@ -11,11 +11,17 @@ function App() {
           <p>{count}</p>
           <button
               onClick={() => {
-                console.log();
                 setCount(window.myAPI.counter(count));
               }}
           >
             count
+          </button>
+          <button
+              onClick={() => {
+                window.myAPI.send("window-open");
+              }}
+          >
+            open child window
           </button>
         </header>
       </div>
