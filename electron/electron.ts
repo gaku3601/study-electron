@@ -42,7 +42,7 @@ ipcMain.on("window-open", ()=>{
         protocol: "file:",
         slashes: true,
       })
-      : "http://localhost:3000";
+      : "http://localhost:3000/sample";
   child.loadURL(appURL);
 });
 
