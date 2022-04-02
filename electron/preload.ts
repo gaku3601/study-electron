@@ -1,6 +1,6 @@
 import { contextBridge, ipcRenderer } from "electron";
 
-contextBridge.exposeInMainWorld("myAPI", {
+contextBridge.exposeInMainWorld("api", {
   counter: (count: number) => {
     return count + 1;
   },
